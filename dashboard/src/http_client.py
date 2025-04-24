@@ -1,7 +1,5 @@
 from aiohttp import ClientSession
 
-from config import settings
-
 class HTTPClient:
     def __init__(
             self,
@@ -17,14 +15,18 @@ class HTTPClient:
 
 class CMCHTTPClient(HTTPClient):
     async def get_listings(self):
-        async with self.session.get("/v1/cryptocurrency/listings/latest") as response:
+        async with self.session.get(
+            "/v1/cryptocurrency/listings/latest",
+            ssl=False,
+            ) as response:
             result = await response.json()
             return result['data']
         
     async def get_currency(self, currency_id: int):
         async with self.session.get(
             "/v2/cryptocurrency/quotes/latest",
-            params={"id": currency_id}
+            ssl=False,
+            params={"id": currency_id},
         ) as response:
             result = await response.json()
             return result['data'][str(currency_id)]

@@ -1,15 +1,15 @@
 from fastapi import FastAPI
 
-from http_client import CMCHTTPClient
+from .http_client import CMCHTTPClient
 
-from config import settings
+from dashboard.src.config import settings
 
 app = FastAPI(
 
 )
 cmc_client = CMCHTTPClient(
     "https://pro-api.coinmarketcap.com",
-    settings.CMC_API_KEY 
+    settings.CMC_API_KEY,
 )
 
 @app.get("/cryptocurrencies")

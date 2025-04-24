@@ -4,7 +4,7 @@ class Settings(BaseSettings):
     CMC_API_KEY: str
 
     model_config =  SettingsConfigDict(
-        env_file="../.env"
+        env_file="/Users/admin/itshka/CryptoDashboard/dashboard/.env"
     )
 
 settings = Settings()
