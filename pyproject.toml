@@ -8,3 +8,4 @@ pydantic = {extras = ["settings"], version = "^2.11.3"}
 aiohttp = "^3.11.18"
 pydantic-settings = "^2.9.1"
 uvicorn = "^0.34.2"
+async-lru = "^2.0.5"
